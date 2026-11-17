@@ -59,3 +59,10 @@ The frontend deploys as a Render Static Site:
 `frontend/.env.production` (a Render env var with the same name also works
 and takes precedence). The export script copies `+not-found.html` to
 `404.html` so Render serves the branded 404 page.
+
+## GitHub Pages (default domain)
+
+`.github/workflows/pages.yml` builds the static site on every push to `main`
+and publishes it to `https://<owner>.github.io/<repo>/`. It sets
+`EXPO_BASE_URL=/<repo>` so assets resolve under the sub-path. For a custom
+domain served from the root, drop `EXPO_BASE_URL` and add a `CNAME`.

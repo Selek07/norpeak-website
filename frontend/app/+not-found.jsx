@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { palette } from "../lib/theme";
 
-const TITLE = "Page not found | Norpeak";
+const TITLE = "Page not found | Nortpeak";
 
 function NotFoundScreen() {
   return (

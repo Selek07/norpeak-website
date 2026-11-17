@@ -1,17 +1,18 @@
 // PLACEHOLDER COPY: every name, number, date, link and contact detail below is
-// a stand-in written for the Norpeak rebrand. Replace it with real Norpeak
+// a stand-in written for the Nortpeak rebrand. Replace it with real Nortpeak
 // content before publishing.
 const portfolioContent = {
   hero: {
-    name: "Norpeak",
-    title: "Digital Product Studio",
+    name: "Software built to reach the summit.",
+    title: "We design and build",
+    titleAccent: "web, AI & brand.",
     subtitle: "Clear, durable software built with Nordic calm.",
     location: "Slovenia · Remote",
     availability: "Taking on new projects",
     summary:
-      "Norpeak designs and builds web platforms, AI tools, and connected products. We keep things simple, fast, and built to last, from first sketch to production launch.",
+      "Nortpeak designs and builds web platforms, AI tools, and connected products. We keep things simple, fast, and built to last, from first sketch to production launch.",
     ctas: [
-      { label: "Email us", href: "mailto:hello@norpeak.com" },
+      { label: "Email us", href: "mailto:hello@nortpeak.com" },
       { label: "GitHub", href: "https://github.com/Selek07" },
     ],
     metrics: [
@@ -19,6 +20,37 @@ const portfolioContent = {
       { label: "Happy clients", value: "15+" },
       { label: "Years building", value: "5" },
     ],
+  },
+  clients: ["Alpine Retail", "Fjordline", "Northwind", "Glacier Labs", "Basecamp Co."],
+  services: [
+    {
+      title: "Web Platforms",
+      icon: "layers-triple-outline",
+      text: "Fast marketing sites, web apps and e-commerce, built on a modern stack and easy for your team to run.",
+      items: ["Websites & web apps", "E-commerce", "Admin dashboards"],
+    },
+    {
+      title: "AI Tools",
+      icon: "head-cog-outline",
+      text: "Assistants and automations that work on your own data and answer with sources you can check.",
+      items: ["Knowledge assistants", "Workflow automation", "AI integrations"],
+    },
+    {
+      title: "Brand & Design",
+      icon: "star-four-points-outline",
+      text: "Identity, interface design and motion so every screen feels like the same company.",
+      items: ["Brand identity", "UI/UX design", "Design systems"],
+    },
+    {
+      title: "Launch & Care",
+      icon: "rocket-launch-outline",
+      text: "Hosting, monitoring and steady improvements after launch, so the product keeps getting better.",
+      items: ["Deployment", "Analytics", "Ongoing support"],
+    },
+  ],
+  quote: {
+    text: "Nortpeak took our idea from a sketch to a product our customers use every day, and stayed calm the whole way up.",
+    author: "Client name, Company (placeholder)",
   },
   spotlight: [
     {
@@ -62,12 +94,12 @@ const portfolioContent = {
   ],
   experience: [
     {
-      company: "Norpeak",
+      company: "Nortpeak",
       role: "Studio Launch",
       period: "2025 - Present",
       meta: "Studio · Slovenia · Remote",
       impact:
-        "Founded Norpeak to help teams turn ideas into durable digital products, combining product design, full-stack engineering, and applied AI under one roof.",
+        "Founded Nortpeak to help teams turn ideas into durable digital products, combining product design, full-stack engineering, and applied AI under one roof.",
     },
     {
       company: "Client: Alpine Retail Group",
@@ -91,7 +123,7 @@ const portfolioContent = {
       period: "2021 - 2023",
       meta: "Freelance · Remote",
       impact:
-        "Delivered websites, brand identities, and small web apps for local businesses, building the process that became Norpeak.",
+        "Delivered websites, brand identities, and small web apps for local businesses, building the process that became Nortpeak.",
     },
   ],
   projects: [
@@ -196,7 +228,7 @@ const portfolioContent = {
     { name: "English", level: "Professional" },
   ],
   contact: {
-    email: "hello@norpeak.com",
+    email: "hello@nortpeak.com",
     phone: "+386 00 000 000",
     phoneHref: "tel:+38600000000",
     location: "Slovenia · Remote",

@@ -1,6 +1,6 @@
-# Norpeak Website
+# Nortpeak Website
 
-Norpeak studio website, adapted (with permission) from Rene Kolednik's portfolio. An Expo + React Native Web frontend and a lean Express/Mongo contact API.
+Nortpeak studio website, adapted (with permission) from Rene Kolednik's portfolio. An Expo + React Native Web frontend and a lean Express/Mongo contact API.
 
 ## Structure
 
@@ -43,7 +43,7 @@ For the first deployment:
 3. Deploy the `backend/` service and fill in the env vars the blueprint
    prompts for. `RESEND_API_KEY` and `CONTACT_TO_EMAIL` are **required** —
    the API exits at startup without them. Set `CLIENT_URL` to the site
-   origin(s) (e.g. `https://norpeak.com`) or browsers will be blocked by
+   origin(s) (e.g. `https://nortpeak.com`) or browsers will be blocked by
    CORS in production. `MONGO_URI` is optional (email-only mode without it).
 4. After Render gives you the backend URL, make sure it matches
    `EXPO_PUBLIC_API_URL` in `frontend/.env.production`.

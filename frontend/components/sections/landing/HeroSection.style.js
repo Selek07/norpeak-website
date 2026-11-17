@@ -144,16 +144,16 @@ export const styles = StyleSheet.create({
   },
   name: {
     color: palette.navy,
-    fontSize: 84,
-    lineHeight: 84,
+    fontSize: 64,
+    lineHeight: 68,
     fontWeight: "900",
-    letterSpacing: -3.8,
+    letterSpacing: -2.6,
     fontFamily: fonts.display,
   },
   nameCompact: {
-    fontSize: 56,
-    lineHeight: 58,
-    letterSpacing: -2.5,
+    fontSize: 40,
+    lineHeight: 44,
+    letterSpacing: -1.6,
   },
   subtitle: {
     marginTop: 8,

@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "type": "module",
-  "description": "API for the Norpeak website.",
+  "description": "API for the Nortpeak website.",
   "engines": {
     "node": "22.x"
   },

@@ -5,7 +5,7 @@ const baseUrl = process.env.EXPO_BASE_URL || "";
 
 module.exports = {
   expo: {
-    name: "Norpeak",
+    name: "Nortpeak",
     slug: "norpeak-website",
     scheme: "norpeak",
     orientation: "portrait",

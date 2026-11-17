@@ -118,7 +118,7 @@ function HeroSection({ hero, isPhone, isWide, onJourneyPress, onTalkPress, proje
               <View style={styles.availabilityPill}>
                 <View style={styles.availabilityPulse} />
                 <Text style={styles.availabilityText}>
-                  TAKING ON NEW PROJECTS
+                  NORTPEAK · DIGITAL STUDIO
                 </Text>
               </View>
 
@@ -130,8 +130,8 @@ function HeroSection({ hero, isPhone, isWide, onJourneyPress, onTalkPress, proje
                 {hero.name}
               </Text>
               <Text style={[styles.subtitle, styles.subtitleCompact]}>
-                {hero.title} |{" "}
-                <Text style={styles.subtitleAccent}>Web, AI &amp; Brand</Text>
+                {hero.title}{" "}
+                <Text style={styles.subtitleAccent}>{hero.titleAccent}</Text>
               </Text>
               <Text style={styles.summary}>{hero.summary}</Text>
 
@@ -168,7 +168,7 @@ function HeroSection({ hero, isPhone, isWide, onJourneyPress, onTalkPress, proje
                   onPress={onTalkPress}
                   style={[styles.primaryCta, styles.phoneCtaFull]}
                 >
-                  <Text style={styles.primaryCtaText}>Work Together</Text>
+                  <Text style={styles.primaryCtaText}>Let&apos;s Talk</Text>
                   <Text style={styles.primaryCtaArrow}>-&gt;</Text>
                 </Pressable>
                 <Pressable
@@ -233,7 +233,7 @@ function HeroSection({ hero, isPhone, isWide, onJourneyPress, onTalkPress, proje
                             accessibilityLabel={
                               project.githubUrl
                                 ? `Open code repository for ${project.title}`
-                                : `Open Norpeak on GitHub`
+                                : `Open Nortpeak on GitHub`
                             }
                             {...externalLinkProps(projectGithubUrl)}
                             style={styles.phoneCarouselLink}
@@ -301,7 +301,7 @@ function HeroSection({ hero, isPhone, isWide, onJourneyPress, onTalkPress, proje
                 const projectLinkLabel = project.githubUrl ? "Code" : "GitHub";
                 const projectLinkA11yLabel = project.githubUrl
                   ? `Open code repository for ${project.title}`
-                  : `Open Norpeak on GitHub for ${project.title}`;
+                  : `Open Nortpeak on GitHub for ${project.title}`;
                 const isBackgroundCard =
                   orbitCard.opacity < ORBIT_CARD_INTERACTIVE_OPACITY;
 
@@ -513,7 +513,7 @@ function HeroSection({ hero, isPhone, isWide, onJourneyPress, onTalkPress, proje
               <View style={styles.availabilityPill}>
                 <View style={styles.availabilityPulse} />
                 <Text style={styles.availabilityText}>
-                  TAKING ON NEW PROJECTS
+                  NORTPEAK · DIGITAL STUDIO
                 </Text>
               </View>
 
@@ -525,8 +525,8 @@ function HeroSection({ hero, isPhone, isWide, onJourneyPress, onTalkPress, proje
                 {hero.name}
               </Text>
               <Text style={[styles.subtitle, !isWide && styles.subtitleCompact]}>
-                {hero.title} |{" "}
-                <Text style={styles.subtitleAccent}>Web, AI &amp; Brand</Text>
+                {hero.title}{" "}
+                <Text style={styles.subtitleAccent}>{hero.titleAccent}</Text>
               </Text>
               <Text style={styles.summary}>{hero.summary}</Text>
 
@@ -563,7 +563,7 @@ function HeroSection({ hero, isPhone, isWide, onJourneyPress, onTalkPress, proje
                   onPress={onTalkPress}
                   style={styles.primaryCta}
                 >
-                  <Text style={styles.primaryCtaText}>Work Together</Text>
+                  <Text style={styles.primaryCtaText}>Let&apos;s Talk</Text>
                   <Text style={styles.primaryCtaArrow}>-&gt;</Text>
                 </Pressable>
 

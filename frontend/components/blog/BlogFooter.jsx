@@ -16,10 +16,10 @@ function BlogFooter({ isPhone }) {
       <View style={[styles.inner, isPhone && styles.innerPhone]}>
         <View>
           <Text style={styles.brand}>
-            Norpeak <Text style={styles.brandDot}>.</Text>
+            Nortpeak <Text style={styles.brandDot}>.</Text>
           </Text>
           <Text style={styles.tagline}>
-            © {new Date().getFullYear()} Norpeak · Engineered for the
+            © {new Date().getFullYear()} Nortpeak · Engineered for the
             future.
           </Text>
         </View>

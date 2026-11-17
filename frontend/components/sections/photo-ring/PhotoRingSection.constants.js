@@ -1,14 +1,14 @@
 // Placeholder gallery: generated Nordic landscape artwork. Swap in real
-// Norpeak photos (team, launches, events) when you have them.
+// Nortpeak photos (team, launches, events) when you have them.
 export const PHOTO_RING_ITEMS = [
   { id: "aurora", category: "Launch", title: "Aurora Launch Night", year: "2025",
     caption: "Shipping a new product under northern skies.",
     image: require("../../../assets/gallery/ring/aurora-card.jpg"), offsetY: -10 },
-  { id: "ridge", category: "Team", title: "Norpeak Team Offsite", year: "2025",
+  { id: "ridge", category: "Team", title: "Nortpeak Team Offsite", year: "2025",
     caption: "Planning the next climb together.",
     image: require("../../../assets/gallery/ring/ridge-ring.jpg"), offsetY: 18 },
   { id: "dawn", category: "Milestone", title: "First Client Launch", year: "2024",
-    caption: "The first project that went live with the Norpeak name on it.",
+    caption: "The first project that went live with the Nortpeak name on it.",
     image: require("../../../assets/gallery/ring/dawn-ring.jpg"), offsetY: -8 },
   { id: "glacier", category: "Design", title: "Brand System Workshop", year: "2024",
     caption: "Shaping a calm, Nordic visual language.",

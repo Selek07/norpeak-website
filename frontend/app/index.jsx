@@ -19,7 +19,11 @@ import {
   HeroSection,
   HighlightsSection,
   PhotoRingSection,
-  SkillsSection
+  ServicesSection,
+  SiteFooter,
+  SkillsSection,
+  StatsBand,
+  TrustStrip,
 } from "../components/sections";
 import portfolioContent from "../data/portfolioContent";
 import { palette, webEffects } from "../lib/theme";
@@ -29,12 +33,12 @@ const SCROLL_RETRY_MS = 50;
 const MAX_SCROLL_ATTEMPTS = 40; // ~2s before giving up
 
 const SEO = {
-  url: "https://norpeak.com/",
-  title: "Norpeak | Digital Product Studio",
+  url: "https://nortpeak.com/",
+  title: "Nortpeak | Digital Product Studio",
   description:
-    "Norpeak is a digital product studio designing and building web platforms, AI tools, and brand systems.",
+    "Nortpeak is a digital product studio designing and building web platforms, AI tools, and brand systems.",
   keywords:
-    "Norpeak, digital product studio, web development, AI systems, brand design, React, Node.js"
+    "Nortpeak, digital product studio, web development, AI systems, brand design, React, Node.js"
 };
 
 function HomeScreen() {
@@ -127,12 +131,12 @@ function HomeScreen() {
       <Head>
         <title>{SEO.title}</title>
         <meta content={SEO.description} name="description" />
-        <meta content="Norpeak" name="author" />
+        <meta content="Nortpeak" name="author" />
         <meta content={SEO.keywords} name="keywords" />
         <meta content="index,follow" name="robots" />
         <link href={SEO.url} rel="canonical" />
         <meta content="website" property="og:type" />
-        <meta content="Norpeak" property="og:site_name" />
+        <meta content="Nortpeak" property="og:site_name" />
         <meta content={SEO.title} property="og:title" />
         <meta content={SEO.description} property="og:description" />
         <meta content={SEO.url} property="og:url" />
@@ -158,64 +162,67 @@ function HomeScreen() {
             <View
               onLayout={(event) => {
                 registerSection("top", event.nativeEvent.layout.y);
-                registerSection("orbit", event.nativeEvent.layout.y);
+                registerSection("work", event.nativeEvent.layout.y);
               }}
             >
               <HeroSection
                 hero={portfolioContent.hero}
                 isPhone={isPhone}
                 isWide={isWide}
-                onJourneyPress={() => handleNavigate("experience")}
+                onJourneyPress={() => handleNavigate("services")}
                 onTalkPress={() => handleNavigate("contact")}
                 projects={portfolioContent.projects}
               />
             </View>
 
-            <View style={styles.memoryGap}>
-              <PhotoRingSection />
+            <View style={styles.trustGap}>
+              <TrustStrip clients={portfolioContent.clients} />
             </View>
 
             <View
-              onLayout={(event) =>
-                registerSection("experience", event.nativeEvent.layout.y)
-              }
-              style={[styles.photoRingExitGap, isPhone && styles.photoRingExitGapPhone]}
-            >
-              <ExperienceSection experience={portfolioContent.experience} />
-            </View>
-
-            <View
-              onLayout={(event) =>
-                registerSection("skills", event.nativeEvent.layout.y)
-              }
+              onLayout={(event) => registerSection("services", event.nativeEvent.layout.y)}
               style={[styles.sectionGap, isPhone && styles.sectionGapPhone]}
             >
-              <SkillsSection isWide={isWide} skills={portfolioContent.skills} />
+              <ServicesSection services={portfolioContent.services} />
+            </View>
+
+            <View style={[styles.sectionGap, isPhone && styles.sectionGapPhone]}>
+              <StatsBand quote={portfolioContent.quote} stats={portfolioContent.hero.metrics} />
             </View>
 
             <View
-              onLayout={(event) =>
-                registerSection("education", event.nativeEvent.layout.y)
-              }
+              onLayout={(event) => registerSection("process", event.nativeEvent.layout.y)}
               style={[styles.sectionGap, isPhone && styles.sectionGapPhone]}
             >
               <HighlightsSection education={portfolioContent.education} />
             </View>
 
             <View
-              onLayout={(event) =>
-                registerSection("contact", event.nativeEvent.layout.y)
-              }
+              onLayout={(event) => registerSection("skills", event.nativeEvent.layout.y)}
+              style={[styles.sectionGap, isPhone && styles.sectionGapPhone]}
+            >
+              <SkillsSection isWide={isWide} skills={portfolioContent.skills} />
+            </View>
+
+            <View
+              onLayout={(event) => registerSection("studio", event.nativeEvent.layout.y)}
+              style={[styles.sectionGap, isPhone && styles.sectionGapPhone]}
+            >
+              <ExperienceSection experience={portfolioContent.experience} />
+            </View>
+
+            <View style={[styles.photoRingExitGap, isPhone && styles.photoRingExitGapPhone]}>
+              <PhotoRingSection />
+            </View>
+
+            <View
+              onLayout={(event) => registerSection("contact", event.nativeEvent.layout.y)}
               style={[styles.sectionGap, isPhone && styles.sectionGapPhone]}
             >
               <ContactSection contact={portfolioContent.contact} isPhone={isPhone} isWide={isWide} />
             </View>
 
-            <View style={styles.footer}>
-              <Text style={styles.footerText}>
-                Norpeak. Built for the summit.
-              </Text>
-            </View>
+            <SiteFooter contact={portfolioContent.contact} onNavigate={handleNavigate} />
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -266,8 +273,8 @@ const styles = StyleSheet.create({
   photoRingExitGapPhone: {
     marginTop: 48
   },
-  memoryGap: {
-    marginTop: 2
+  trustGap: {
+    marginTop: 24
   },
   footer: {
     paddingTop: 24,

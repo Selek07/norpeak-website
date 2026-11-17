@@ -20,10 +20,10 @@ import blogContent from "../data/blogContent";
 import { palette, webEffects } from "../lib/theme";
 
 const SEO = {
-  url: "https://norpeak.com/blog",
-  title: "Lab — Norpeak | Notes on engineering & AI systems",
+  url: "https://nortpeak.com/blog",
+  title: "Lab — Nortpeak | Notes on engineering & AI systems",
   description:
-    "Field notes and long-form writing from Norpeak on full-stack engineering, AI systems, and applied product work.",
+    "Field notes and long-form writing from Nortpeak on full-stack engineering, AI systems, and applied product work.",
 };
 
 function BlogScreen() {
@@ -51,7 +51,7 @@ function BlogScreen() {
       <Head>
         <title>{SEO.title}</title>
         <meta content={SEO.description} name="description" />
-        <meta content="Norpeak" name="author" />
+        <meta content="Nortpeak" name="author" />
         <meta content="index,follow" name="robots" />
         <link href={SEO.url} rel="canonical" />
         <meta content="website" property="og:type" />

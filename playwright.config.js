@@ -2,7 +2,7 @@
 const { defineConfig, devices } = require("@playwright/test");
 
 /**
- * Playwright config for the Norpeak website (Expo Router / React Native Web).
+ * Playwright config for the Nortpeak website (Expo Router / React Native Web).
  *
  * The frontend is served by Metro via `expo start --web` on port 8081. The first
  * web bundle can take a while, so the webServer + navigation timeouts are generous.

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://norpeak.com/sitemap.xml
+Sitemap: https://nortpeak.com/sitemap.xml

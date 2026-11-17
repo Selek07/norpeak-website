@@ -20,17 +20,7 @@ export default function Html({ children }) {
       </defs>
       <rect x="4" y="4" width="56" height="56" rx="18" fill="url(#brand)" />
       <circle cx="20" cy="20" r="10" fill="rgba(255,255,255,0.14)" />
-      <text
-        x="18"
-        y="39"
-        fill="#FAFCFE"
-        font-family="Segoe UI, Arial, sans-serif"
-        font-size="22"
-        font-weight="700"
-        letter-spacing="-1.2"
-      >
-        NP
-      </text>
+      <path d="M38 18L29 30l6.8 9.2-3.9 2.9C27.9 36.6 21 27 21 27L8 46h48L38 18z" fill="#FAFCFE" />
       <circle cx="49" cy="44" r="3.8" fill="#86CFE0" />
     </svg>`
   );

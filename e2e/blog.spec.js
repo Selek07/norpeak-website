@@ -10,7 +10,7 @@ test.describe("Blog page", () => {
   });
 
   test("renders the featured hero", async ({ page }) => {
-    await expect(page).toHaveTitle(/Norpeak/);
+    await expect(page).toHaveTitle(/Nortpeak/);
     await expect(page.getByText("Beyond the Grid:")).toBeVisible();
     await expect(page.getByText("FEATURED MANUSCRIPT")).toBeVisible();
   });

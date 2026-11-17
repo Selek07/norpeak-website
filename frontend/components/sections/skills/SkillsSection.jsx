@@ -112,7 +112,7 @@ function SkillsSection({ isWide, skills }) {
               isPhone && styles.headingPhone,
             ]}
           >
-            The Norpeak Toolkit
+            The Nortpeak Toolkit
           </Text>
           <Text
             style={[

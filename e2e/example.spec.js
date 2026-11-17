@@ -13,17 +13,17 @@ test.describe("Homepage", () => {
   });
 
   test("loads with the correct title", async ({ page }) => {
-    await expect(page).toHaveTitle(/Norpeak/);
+    await expect(page).toHaveTitle(/Nortpeak/);
   });
 
   test("shows the navigation call-to-action", async ({ page }) => {
-    // The "LET'S TALK" CTA lives in the sticky SectionNav header.
-    await expect(page.getByText("LET'S TALK")).toBeVisible();
+    // The "START A PROJECT" CTA lives in the sticky SectionNav header.
+    await expect(page.getByText("START A PROJECT")).toBeVisible();
   });
 
   test("renders the page footer", async ({ page }) => {
     await expect(
-      page.getByText("Norpeak. Built for the summit.")
+      page.getByText("Nortpeak. Built for the summit.")
     ).toBeVisible();
   });
 });

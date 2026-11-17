@@ -3,6 +3,14 @@ import { Platform, StyleSheet } from "react-native";
 import { fonts, palette } from "../../lib/theme";
 
 export const styles = StyleSheet.create({
+  brandMark: {
+    width: 36,
+    height: 36,
+    borderRadius: 11,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: palette.navy,
+  },
   wrapper: {
     width: "100%",
     maxWidth: 1240,

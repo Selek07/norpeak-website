@@ -5,11 +5,11 @@ import { AppIcon } from "../common";
 import { styles } from "./SectionNav.style";
 
 const links = [
-  { key: "orbit", label: "Orbit" },
-  { key: "experience", label: "Experience" },
-  { key: "skills", label: "Stack" },
-  { key: "education", label: "Process" },
-  { key: "blog", label: "Lab" },
+  { key: "work", label: "Work" },
+  { key: "services", label: "Services" },
+  { key: "process", label: "Process" },
+  { key: "studio", label: "Studio" },
+  { key: "blog", label: "Journal" },
 ];
 
 function SectionNav({ isWide, onNavigate }) {
@@ -33,22 +33,13 @@ function SectionNav({ isWide, onNavigate }) {
             <AppIcon color="rgba(42,111,151, 0.9)" name="menu" size={22} />
           </Pressable>
         ) : (
-          <View style={styles.avatarGroup}>
-            <View style={styles.avatarShell}>
-              <View style={styles.avatarInner}>
-                <AppIcon
-                  color="rgba(14,34,53, 0.35)"
-                  name="account"
-                  size={16}
-                />
-              </View>
-            </View>
-            <View style={styles.avatarGlow} />
+          <View style={styles.brandMark}>
+            <AppIcon color="#FFFFFF" name="terrain" size={18} />
           </View>
         )}
 
         <Text style={styles.brandText}>
-          NP <Text style={styles.brandDot}>.</Text>
+          Nortpeak<Text style={styles.brandDot}>.</Text>
         </Text>
       </View>
 
@@ -73,7 +64,7 @@ function SectionNav({ isWide, onNavigate }) {
         onPress={() => onNavigate("contact")}
         style={styles.ctaButton}
       >
-        <Text style={styles.ctaText}>LET&apos;S TALK</Text>
+        <Text style={styles.ctaText}>START A PROJECT</Text>
         <AppIcon color="#FFFFFF" name="arrow-right" size={14} />
       </Pressable>
 

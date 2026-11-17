@@ -4,3 +4,8 @@ export { default as HeroSection } from "./landing";
 export { default as HighlightsSection } from "./highlights";
 export { default as PhotoRingSection } from "./photo-ring";
 export { default as SkillsSection } from "./skills";
+export { default as ServicesSection } from "./company/ServicesSection";
+export { default as SiteFooter } from "./company/SiteFooter";
+export { default as StatsBand } from "./company/StatsBand";
+export { default as TrustStrip } from "./company/TrustStrip";
+export { default as SectionHeader } from "./company/SectionHeader";

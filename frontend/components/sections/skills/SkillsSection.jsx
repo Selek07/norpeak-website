@@ -1,0 +1,304 @@
+import { memo, useMemo, useState } from "react";
+import {
+  Platform,
+  Pressable,
+  Text,
+  useWindowDimensions,
+  View,
+} from "react-native";
+
+import { AppIcon } from "../../common";
+import { surface } from "../../../lib/theme";
+import {
+  DOT_CLUSTER_DOTS,
+  FEATURE_CARD_THEMES,
+  NODE_CONNECTIONS,
+  SKILL_NODES,
+} from "./SkillsSection.constants";
+import {
+  buildFeatureCards,
+  buildNodesByLabel,
+  getChipToneStyle,
+  getChipToneTextStyle,
+  getConnectionStyle,
+} from "./SkillsSection.helpers";
+import { styles } from "./SkillsSection.style";
+
+// Static web-only transition style — identical for every card, defined once at module level
+const WEB_CARD_TRANSITION = Platform.OS === "web"
+  ? {
+      transitionDuration: "220ms",
+      transitionProperty: "transform, box-shadow, filter, background-color",
+      transitionTimingFunction: "ease-out",
+    }
+  : null;
+
+function SkillsSection({ isWide, skills }) {
+  const { width } = useWindowDimensions();
+  const [hoveredCard, setHoveredCard] = useState(null);
+  const [hoveredNode, setHoveredNode] = useState(null);
+  const isPhone = width < 640;
+  const shouldStackCompactCards = width < 760;
+  const featureCards = useMemo(() => buildFeatureCards(skills), [skills]);
+  const nodesByLabel = useMemo(() => buildNodesByLabel(SKILL_NODES), []);
+  const connectionStyles = useMemo(
+    () =>
+      NODE_CONNECTIONS.map((connection, index) =>
+        getConnectionStyle({
+          from: nodesByLabel[connection[0]],
+          index,
+          to: nodesByLabel[connection[1]],
+        })
+      ),
+    [nodesByLabel]
+  );
+  // Pre-compute per-card static styles (background, border, backgroundImage).
+  // These depend only on FEATURE_CARD_THEMES which never changes at runtime.
+  const cardStaticStyles = useMemo(
+    () =>
+      FEATURE_CARD_THEMES.map((theme) => ({
+        backgroundColor: theme.solidBackgroundColor || theme.backgroundColor,
+        borderColor: theme.borderColor || "transparent",
+        ...(Platform.OS === "web" ? { backgroundImage: theme.backgroundColor } : {}),
+      })),
+    []
+  );
+
+  return (
+    <View
+      style={[
+        surface,
+        styles.shell,
+        !isWide && styles.shellCompact,
+        isPhone && styles.shellPhone,
+      ]}
+    >
+      <View pointerEvents="none" style={styles.ambientGlow} />
+      <View pointerEvents="none" style={styles.ambientGlowSecondary} />
+      <View pointerEvents="none" style={styles.abstractBlobLeft} />
+      <View pointerEvents="none" style={styles.abstractBlobRight} />
+      <View pointerEvents="none" style={styles.abstractRing} />
+
+      <View pointerEvents="none" style={styles.dotCluster}>
+        {DOT_CLUSTER_DOTS.map((dot) => (
+          <View
+            key={dot.key}
+            style={[
+              styles.dot,
+              {
+                left: dot.left,
+                top: dot.top,
+                width: dot.size,
+                height: dot.size,
+                opacity: dot.opacity,
+              },
+            ]}
+          />
+        ))}
+      </View>
+
+      <View style={[styles.layout, !isWide && styles.layoutCompact]}>
+        <View style={[styles.leftColumn, !isWide && styles.leftColumnCompact]}>
+          <View style={styles.headerBlock}>
+            <Text style={styles.eyebrow}>Stack Map</Text>
+            <View style={styles.headingAccent} />
+          </View>
+          <Text
+            accessibilityRole="header"
+            aria-level={2}
+            style={[
+              styles.heading,
+              !isWide && styles.headingCompact,
+              isPhone && styles.headingPhone,
+            ]}
+          >
+            The Norpeak Toolkit
+          </Text>
+          <Text
+            style={[
+              styles.copy,
+              !isWide && styles.copyCompact,
+              isPhone && styles.copyPhone,
+            ]}
+          >
+            A carefully selected stack for building scalable, intelligent, and
+            real-time software solutions.
+          </Text>
+
+          <View style={styles.networkPanel}>
+            <View style={styles.networkPanelHeader}>
+              <Text style={styles.networkPanelTitle}>Core Stack</Text>
+              <Text style={styles.networkPanelMeta}>Interface to intelligence</Text>
+            </View>
+
+            {isWide ? (
+              <View style={styles.networkStage}>
+                {NODE_CONNECTIONS.map((connection, index) => (
+                  <View
+                    key={`${connection[0]}-${connection[1]}`}
+                    pointerEvents="none"
+                    style={[styles.connectionLine, connectionStyles[index]]}
+                  />
+                ))}
+
+                {SKILL_NODES.map((node) => {
+                  return (
+                    <View
+                      key={node.label}
+                      style={[
+                        styles.nodeWrap,
+                        {
+                          left: node.x,
+                          top: node.y,
+                          width: node.width,
+                        },
+                      ]}
+                    >
+                      <Pressable
+                        // Decorative hover target only — keep it out of the
+                        // keyboard tab order since it triggers no action.
+                        // Must be tabIndex: Pressable ignores `focusable`.
+                        tabIndex={-1}
+                        onHoverIn={() => setHoveredNode(node.label)}
+                        onHoverOut={() => setHoveredNode(null)}
+                        onPressIn={() => setHoveredNode(node.label)}
+                        onPressOut={() => setHoveredNode(null)}
+                        style={[
+                          styles.skillChip,
+                          getChipToneStyle(styles, node.tone),
+                          hoveredNode === node.label && styles.skillChipHovered,
+                          Platform.OS === "web" && styles.skillChipTransition,
+                        ]}
+                      >
+                        <Text
+                          style={[
+                            styles.skillChipText,
+                            getChipToneTextStyle(styles, node.tone),
+                          ]}
+                        >
+                          {node.label}
+                        </Text>
+                      </Pressable>
+                    </View>
+                  );
+                })}
+              </View>
+            ) : (
+              <View
+                style={[
+                  styles.mobileChipWrap,
+                  isPhone && styles.mobileChipWrapPhone,
+                ]}
+              >
+                {SKILL_NODES.map((node) => (
+                  <Pressable
+                    tabIndex={-1}
+                    key={node.label}
+                    onPressIn={() => setHoveredNode(node.label)}
+                    onPressOut={() => setHoveredNode(null)}
+                    style={[
+                      styles.skillChip,
+                      styles.skillChipCompact,
+                      getChipToneStyle(styles, node.tone),
+                      hoveredNode === node.label && styles.skillChipHovered,
+                    ]}
+                  >
+                    <Text
+                      style={[
+                        styles.skillChipText,
+                        styles.skillChipTextCompact,
+                        getChipToneTextStyle(styles, node.tone),
+                      ]}
+                    >
+                      {node.label}
+                    </Text>
+                  </Pressable>
+                ))}
+              </View>
+            )}
+          </View>
+        </View>
+
+        {!isPhone ? (
+        <View
+          style={[
+            styles.cardsStage,
+            !isWide && styles.cardsStageCompact,
+            shouldStackCompactCards && styles.cardsStageSingleColumn,
+          ]}
+        >
+          {featureCards.map((card, index) => {
+            const theme = FEATURE_CARD_THEMES[index];
+            const isHovered = hoveredCard === index;
+
+            return (
+              <Pressable
+                tabIndex={-1}
+                key={card.title}
+                onHoverIn={() => setHoveredCard(index)}
+                onHoverOut={() => setHoveredCard(null)}
+                onPressIn={() => setHoveredCard(index)}
+                onPressOut={() => setHoveredCard(null)}
+                style={[
+                  styles.featureCard,
+                  isWide
+                    ? [
+                        styles.featureCardWide,
+                        {
+                          width: theme.width,
+                          minHeight: theme.height,
+                          marginTop: theme.staggerTop,
+                        },
+                      ]
+                    : shouldStackCompactCards
+                      ? styles.featureCardSingleColumn
+                      : styles.featureCardCompact,
+                  cardStaticStyles[index],
+                  {
+                    transform: [
+                      { rotate: isHovered ? "0deg" : theme.rotate },
+                      { translateY: isHovered ? -4 : 0 },
+                    ],
+                  },
+                  WEB_CARD_TRANSITION,
+                  Platform.OS === "web"
+                    ? {
+                        boxShadow: isHovered
+                          ? "0 22px 42px rgba(14,34,53, 0.12)"
+                          : "0 16px 28px rgba(14,34,53, 0.07)",
+                      }
+                    : null,
+                ]}
+              >
+                <View
+                  style={[
+                    styles.featureIconTile,
+                    {
+                      backgroundColor: theme.iconTileBackgroundColor,
+                    },
+                  ]}
+                >
+                  <AppIcon
+                    color={theme.color}
+                    name={theme.icon}
+                    size={isWide ? 26 : 24}
+                  />
+                </View>
+
+                <Text style={[styles.featureTitle, { color: theme.color }]}>
+                  {card.title}
+                </Text>
+                <Text style={[styles.featureText, { color: theme.color }]}>
+                  {card.summary}
+                </Text>
+              </Pressable>
+            );
+          })}
+        </View>
+        ) : null}
+      </View>
+    </View>
+  );
+}
+
+export default memo(SkillsSection);

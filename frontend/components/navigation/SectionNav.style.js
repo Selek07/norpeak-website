@@ -1,0 +1,164 @@
+import { Platform, StyleSheet } from "react-native";
+
+import { fonts, palette } from "../../lib/theme";
+
+export const styles = StyleSheet.create({
+  wrapper: {
+    width: "100%",
+    maxWidth: 1240,
+    alignSelf: "center",
+    minHeight: 72,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 20,
+    paddingHorizontal: 24,
+  },
+  brandRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 14,
+  },
+  avatarGroup: {
+    position: "relative",
+  },
+  avatarShell: {
+    width: 40,
+    height: 40,
+    padding: 2,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: "rgba(42,111,151, 0.18)",
+    backgroundColor: "rgba(255,255,255,0.4)",
+    ...(Platform.OS === "web"
+      ? {
+          backdropFilter: "blur(10px)",
+        }
+      : {}),
+  },
+  avatarInner: {
+    flex: 1,
+    borderRadius: 999,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#E4E7ED",
+    borderWidth: 1,
+    borderColor: "rgba(255,255,255,0.5)",
+  },
+  avatarGlow: {
+    position: "absolute",
+    inset: -4,
+    borderRadius: 999,
+    backgroundColor: "rgba(42,111,151, 0.12)",
+    opacity: 0.35,
+    zIndex: -1,
+  },
+  brandText: {
+    color: palette.navy,
+    fontSize: 24,
+    fontWeight: "800",
+    letterSpacing: -0.8,
+    fontFamily: fonts.display,
+  },
+  brandDot: {
+    color: palette.purple,
+  },
+  linkRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 38,
+    marginLeft: "auto",
+    marginRight: 12,
+  },
+  linkButton: {
+    alignItems: "center",
+    gap: 6,
+  },
+  linkText: {
+    color: "rgba(14,34,53, 0.58)",
+    fontSize: 12,
+    fontWeight: "800",
+    letterSpacing: 2.4,
+    textTransform: "uppercase",
+    fontFamily: fonts.display,
+  },
+  linkUnderline: {
+    width: 18,
+    height: 2,
+    borderRadius: 999,
+    backgroundColor: "rgba(42,111,151, 0.18)",
+  },
+  ctaButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    paddingHorizontal: 22,
+    paddingVertical: 12,
+    borderRadius: 999,
+    backgroundColor: palette.purple,
+    ...(Platform.OS === "web"
+      ? {
+          boxShadow: "0 14px 32px rgba(42,111,151, 0.2)",
+        }
+      : {}),
+  },
+  ctaText: {
+    color: "#FFFFFF",
+    fontSize: 10,
+    fontWeight: "900",
+    letterSpacing: 1.3,
+    fontFamily: fonts.display,
+  },
+  wrapperCompact: {
+    minHeight: 52,
+    paddingHorizontal: 16,
+  },
+  hamburgerBtn: {
+    width: 36,
+    height: 36,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 10,
+    backgroundColor: "rgba(42,111,151, 0.08)",
+  },
+  menuOverlay: {
+    flex: 1,
+    backgroundColor: "rgba(14,34,53, 0.38)",
+    ...(Platform.OS === "web"
+      ? {
+          backdropFilter: "blur(4px)",
+        }
+      : {}),
+  },
+  menuSheet: {
+    marginTop: 52,
+    marginHorizontal: 16,
+    borderRadius: 18,
+    backgroundColor: "rgba(255, 255, 255, 0.96)",
+    borderWidth: 1,
+    borderColor: "rgba(42,111,151, 0.1)",
+    overflow: "hidden",
+    ...(Platform.OS === "web"
+      ? {
+          backdropFilter: "blur(16px)",
+          boxShadow: "0 16px 40px rgba(14,34,53, 0.14)",
+        }
+      : {}),
+  },
+  menuLink: {
+    paddingHorizontal: 22,
+    paddingVertical: 18,
+  },
+  menuLinkText: {
+    color: palette.navy,
+    fontSize: 16,
+    fontWeight: "700",
+    letterSpacing: -0.2,
+    fontFamily: fonts.display,
+  },
+  menuDivider: {
+    height: 1,
+    backgroundColor: "rgba(14,34,53, 0.06)",
+    marginHorizontal: 16,
+  },
+});
